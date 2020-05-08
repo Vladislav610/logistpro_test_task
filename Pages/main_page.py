@@ -1,4 +1,5 @@
 from .base_page import BasePage
+from .locators import MainPageLocators
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 import requests
@@ -10,8 +11,8 @@ class MainPage(BasePage):
         number_of_cards = self.cards_in_catalog_counter()
         for id in range(1, number_of_cards+1):
             ok = False
-            ok = BasePage.is_element_present(self, By.XPATH,
-            f"//div/div/a[{id}]/img[starts-with(@src, 'http')]")
+            ok = BasePage.is_element_present(
+                self, By.XPATH, f"//div/div/a[{id}]/img[starts-with(@src, 'http')]")
             if ok:
                 counter += 1
         assert counter == number_of_cards, \
@@ -23,7 +24,8 @@ class MainPage(BasePage):
         number_of_cards = self.cards_in_catalog_counter()
         for id in range(1, number_of_cards+1):
             try:
-                img = self.browser.find_element(By.XPATH, f"//div/div/a[{id}]/img[starts-with(@src, 'http')]")
+                img = self.browser.find_element(
+                    By.XPATH, f"//div/div/a[{id}]/img[starts-with(@src, 'http')]")
                 img_src = img.get_attribute('src')
                 response = requests.get(img_src)
                 if response.status_code == 200:

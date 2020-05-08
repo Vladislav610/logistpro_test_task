@@ -1,10 +1,6 @@
 from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from .locators import BasePageLocators, MainPageLocators
-from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.common.by import By
+from .locators import BasePageLocators
 
 
 class BasePage:
@@ -27,5 +23,5 @@ class BasePage:
     def cards_in_catalog_counter(self):
         number_of_cards = len(
             self.browser.find_elements(
-                By.XPATH, f"//*[@id='page-content']/div/div/a"))
+                By.XPATH, BasePageLocators.OFFER_CARD))
         return number_of_cards
