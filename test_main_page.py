@@ -18,7 +18,7 @@ def test_all_images_code_200(browser):
     page.open()
     page.should_not_be_404_images_on_page()
 
-@mark.testcase1
+@mark.testcase2
 def test_all_cards_links_code_200(browser):
     """
     Все ссылки на страницы с детальной

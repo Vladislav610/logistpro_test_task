@@ -1,5 +1,5 @@
 class BasePageLocators:
-    OFFER_CARD = f"//*[@id='page-content']/div/div/a"
+    OFFER_CARD = "//*[@id='page-content']/div/div/a"
 
 
 class MainPageLocators:
