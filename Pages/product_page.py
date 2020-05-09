@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
 
 
 class ProductPage(BasePage):
@@ -17,6 +16,3 @@ class ProductPage(BasePage):
         offer_name_in_cart = offer_name_in_cart.text
         assert offer_name_in_page == offer_name_in_cart,\
             'Выбранное предложение не добавилось в корзину'
-
-    def can_buy_offer_added_to_cart(self):
-        pass
