@@ -17,3 +17,14 @@ def test_all_images_code_200(browser):
     page = MainPage(browser, link)
     page.open()
     page.should_not_be_404_images_on_page()
+
+@mark.testcase1
+def test_all_cards_links_code_200(browser):
+    """
+    Все ссылки на страницы с детальной
+    информацией по предложениям должны быть с кодом 200.
+    """
+    link = "https://bamboo.dev.sozvezdie-tour.ru/cat/"
+    page = MainPage(browser, link)
+    page.open()
+    page.should_be_200_code_on_all_cards_links()
